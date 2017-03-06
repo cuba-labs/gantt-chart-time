@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://caption"
+        class="com.company.demo.web.screens.GanttChartEvents"
+        messagesPack="com.company.demo.web.screens"
+        xmlns:chart="http://schemas.haulmont.com/charts/charts.xsd">
+    <dsContext>
+        <collectionDatasource id="taskSpansDs"
+                              class="com.company.demo.entity.TaskSpan"
+                              view="taskSpan-with-segments">
+            <query>
+                <![CDATA[select e from demo$TaskSpan e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout>
+        <chart:ganttChart id="ganttChart"
+                          additionalSegmentFields="task"
+                          balloonDateFormat="JJ:NN"
+                          brightnessStep="10"
+                          categoryField="category"
+                          colorField="color"
+                          columnWidth="0.5"
+                          datasource="taskSpansDs"
+                          durationField="duration"
+                          height="100%"
+                          marginRight="70"
+                          period="HOURS"
+                          rotate="true"
+                          segmentsField="segments"
+                          startDate="2016-01-01"
+                          startField="start"
+                          theme="LIGHT"
+                          width="100%">
+            <chart:graph balloonText="&lt;strong&gt;[[task]]&lt;/strong&gt;: [[open]] [[value]]"
+                         fillAlphas="1"/>
+            <chart:valueAxis id="valueAxis"
+                             maximum="31"
+                             minimum="7"
+                             type="DATE"/>
+            <chart:valueScrollbar autoGridCount="true"
+                                  color="BLACK"/>
+            <chart:chartCursor cursorAlpha="0"
+                               cursorColor="#55bb76"
+                               fullWidth="true"
+                               valueLineAlpha="0.5"
+                               valueBalloonsEnabled="false"
+                               valueLineBalloonEnabled="true"
+                               valueLineEnabled="true"
+                               valueZoomable="true"
+                               zoomable="false"/>
+            <chart:export/>
+        </chart:ganttChart>
+    </layout>
+</window>

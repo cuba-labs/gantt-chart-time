@@ -1,0 +1,4 @@
+-- begin DEMO_SEGMENT
+alter table DEMO_SEGMENT add constraint FK_DEMO_SEGMENT_TASK_SPAN foreign key (TASK_SPAN_ID) references DEMO_TASK_SPAN(ID)^
+create index IDX_DEMO_SEGMENT_TASK_SPAN on DEMO_SEGMENT (TASK_SPAN_ID)^
+-- end DEMO_SEGMENT

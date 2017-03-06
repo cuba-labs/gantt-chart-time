@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.demo.web.segment.SegmentEdit"
+        datasource="segmentDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.demo.web.segment">
+    <dsContext>
+        <datasource id="segmentDs"
+                    class="com.company.demo.entity.Segment"
+                    view="_local"/>
+    </dsContext>
+    <dialogMode width="AUTO"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="segmentDs">
+            <column width="400px">
+                <field id="start"/>
+                <field id="duration"/>
+                <field id="color"/>
+                <field id="task"/>
+                <field id="index"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>
